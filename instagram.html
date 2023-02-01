@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+</head>
+
+<body>
+    <h1>Instagram Login</h1>
+    <div class="inputsHolder">
+        <input id="nameInput" type="text" placeholder="Your name">
+        <input id="emailInput" type="email" placeholder="Your email">
+    </div>
+
+    <div class="loginButtons">
+        <button onclick="instagramAuthorization();">Instagram</button>
+    </div>
+
+    <script>
+        const clientID = 738003804287635;
+        let instagramAuthURL = `https://api.instagram.com/oauth/authorize?client_id=738003804287635&redirect_uri=https://localhost:3000/instagram&scope=user_profile,user_media&response_type=code`
+
+        function instagramAuthorization() {
+            console.log("Authorizating")
+            fetch(instagramAuthURL, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*"
+                }
+            })
+                .then(resp => resp.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error on fetch:", error));
+        }
+
+
+        function fillFields(name, email) {
+            const nInput = document.getElementById("nameInput");
+            const eInput = document.getElementById("emailInput");
+
+            nInput.value = name;
+            eInput.value = email;
+        }
+    </script>
+</body>
+
+<style>
+    *,
+    *::after,
+    *::before:not(i) {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+        font-family: "Nunito", sans-serif;
+    }
+
+    body {
+        background-color: gray;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .inputsHolder {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+
+    input {
+        padding: 5px 10px;
+    }
+
+    .loginButtons {
+        display: flex;
+        gap: 10px;
+        margin: auto;
+        width: fit-content;
+    }
+
+</style>
+
+</html>
