@@ -19,7 +19,7 @@
     <div class="loginButtons">
         <a href="#" id="ig-code">Code</a>
         <a href="#" id="ig-token">Token</a>
-        <a href="#" id="ig-idtoken">Id Token</a>
+        <a href="#" id="ig-idtoken">Id Token!</a>
 
         <button onclick="instagramAuthorization('code');">Code</button>
         <button onclick="instagramAuthorization('token');">Token</button>
@@ -62,7 +62,7 @@
         const igIdtoken = document.getElementById("ig-idtoken");
         igIdtoken.addEventListener("click", function (event) {
             event.preventDefault();
-            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=openid&response_type=id_token", "_self")
         })
 
 
