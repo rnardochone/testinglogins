@@ -18,6 +18,7 @@
 
     <div class="loginButtons">
         <a href="#" id="instagram-login-button">Login with Instagram</a>
+        <a href="#" id="instagram-login-button2">Login with Instagram2</a>
 
 
         <button onclick="instagramAuthorization();">Instagram</button>
@@ -47,8 +48,15 @@
         const instagramBtn = document.getElementById("instagram-login-button");
         instagramBtn.addEventListener("click", function (event) {
             event.preventDefault();
-            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile", "_self")
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=token", "_self")
         })
+
+        const instagramBtn2 = document.getElementById("instagram-login-button2");
+        instagramBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
+        })
+
 
 
         function fillFields(name, email) {
