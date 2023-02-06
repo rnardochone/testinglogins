@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://www.instagram.com/embed.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,17 @@
     </div>
 
     <div class="loginButtons">
+        <a href="#" id="instagram-login-button">Login with Instagram</a>
+
+
         <button onclick="instagramAuthorization();">Instagram</button>
     </div>
 
     <script>
+        window.addEventListener("load", function () {
+            window.instagram.Embeds.process();
+        })
+
         const clientID = 738003804287635;
         let instagramAuthURL = `https://api.instagram.com/oauth/authorize?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile,user_media&response_type=code`
 
@@ -34,6 +42,13 @@
                 .then(data => console.log(data))
                 .catch(error => console.error("Error on fetch:", error));
         }
+
+
+        const instagramBtn = document.getElementById("instagram-login-button");
+        instagramBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile", "_self")
+        })
 
 
         function fillFields(name, email) {
