@@ -17,11 +17,11 @@
     </div>
 
     <div class="loginButtons">
-        <a href="#" id="instagram-login-button">Login with Instagram</a>
-        <a href="#" id="instagram-login-button2">Login with Instagram2</a>
 
 
-        <button onclick="instagramAuthorization();">Instagram</button>
+        <button onclick="instagramAuthorization('code');">Code</button>
+        <button onclick="instagramAuthorization('token');">Token</button>
+        <button onclick="instagramAuthorization('id_token');">ID Token</button>
     </div>
 
     <script>
@@ -30,11 +30,11 @@
         })
 
         const clientID = 738003804287635;
-        let instagramAuthURL = `https://api.instagram.com/oauth/authorize?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile,user_media&response_type=code`
+        let instagramAuthURL = `https://api.instagram.com/oauth/authorize?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile,user_media&response_type=`
 
-        function instagramAuthorization() {
-            console.log("Authorizating")
-            fetch(instagramAuthURL, {
+        function instagramAuthorization(t) {
+            console.log("Authorizating", instagramAuthURL + t)
+            fetch(instagramAuthURL + t, {
                 headers: {
                     "Access-Control-Allow-Origin": "*"
                 }
@@ -45,17 +45,23 @@
         }
 
 
-        const instagramBtn = document.getElementById("instagram-login-button");
-        instagramBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=token", "_self")
-        })
+        // const igCode = document.getElementById("ig-code");
+        // instagramBtn.addEventListener("click", function (event) {
+        //     event.preventDefault();
+        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=code", "_self")
+        // })
 
-        const instagramBtn2 = document.getElementById("instagram-login-button2");
-        instagramBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
-        })
+        // const igToken = document.getElementById("ig-token");
+        // instagramBtn.addEventListener("click", function (event) {
+        //     event.preventDefault();
+        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=token", "_self")
+        // })
+
+        // const instagramBtn2 = document.getElementById("instagram-login-button2");
+        // instagramBtn.addEventListener("click", function (event) {
+        //     event.preventDefault();
+        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
+        // })
 
 
 
