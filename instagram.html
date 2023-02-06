@@ -17,7 +17,9 @@
     </div>
 
     <div class="loginButtons">
-
+        <a href="#" id="ig-code">Code</a>
+        <a href="#" id="ig-token">Token</a>
+        <a href="#" id="ig-idtoken">Id Token</a>
 
         <button onclick="instagramAuthorization('code');">Code</button>
         <button onclick="instagramAuthorization('token');">Token</button>
@@ -45,23 +47,23 @@
         }
 
 
-        // const igCode = document.getElementById("ig-code");
-        // instagramBtn.addEventListener("click", function (event) {
-        //     event.preventDefault();
-        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=code", "_self")
-        // })
+        const igCode = document.getElementById("ig-code");
+        igCode.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=code", "_self")
+        })
 
-        // const igToken = document.getElementById("ig-token");
-        // instagramBtn.addEventListener("click", function (event) {
-        //     event.preventDefault();
-        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=token", "_self")
-        // })
+        const igToken = document.getElementById("ig-token");
+        igToken.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=token", "_self")
+        })
 
-        // const instagramBtn2 = document.getElementById("instagram-login-button2");
-        // instagramBtn.addEventListener("click", function (event) {
-        //     event.preventDefault();
-        //     window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
-        // })
+        const igIdtoken = document.getElementById("ig-idtoken");
+        igIdtoken.addEventListener("click", function (event) {
+            event.preventDefault();
+            window.open("https://api.instagram.com/oauth/authorize/?client_id=738003804287635&redirect_uri=https://rnardochone.github.io/testinglogins/instagram.html&scope=user_profile&response_type=id_token", "_self")
+        })
 
 
 
